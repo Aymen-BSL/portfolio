@@ -24,7 +24,7 @@ function PortfolioContent() {
       <RecentProjects />
       <CertificationsSection />
       <AchievementsSection />
-      <ApproachSection />
+      {/* <ApproachSection /> */}
       {/* <ServicesSection /> */}
       <BlogSection />
       <ContactSection />
