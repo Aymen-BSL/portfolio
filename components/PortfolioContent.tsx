@@ -1,7 +1,7 @@
 import RecentProjects from "./RecentProjects";
 import { AboutSection } from "./sections/AboutSection";
 import { AchievementsSection } from "./sections/AchievementsSection";
-import ApproachSection from "./sections/ApproachSection";
+// import ApproachSection from "./sections/ApproachSection";
 import { BlogSection } from "./sections/BlogSection";
 import { CertificationsSection } from "./sections/CertificationsSection";
 import { ContactSection } from "./sections/ContactSection";
