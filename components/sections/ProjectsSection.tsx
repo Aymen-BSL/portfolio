@@ -4,6 +4,24 @@ import { defineQuery } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 
+interface Technology {
+  name: string | null;
+  category: string | null;
+  color: string | null;
+}
+
+interface Project {
+  title: string | null;
+  slug: { current: string } | null;
+  tagline: string | null;
+  category: string | null;
+  liveUrl: string | null;
+  githubUrl: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  coverImage: any; // Using any for Sanity image object is safe here to avoid complex types
+  technologies: Technology[] | null;
+}
+
 const PROJECTS_QUERY =
   defineQuery(`*[_type == "project" && featured == true] | order(order asc)[0...6]{
   title,
@@ -35,7 +53,7 @@ export async function ProjectsSection() {
 
         <div className="@container">
           <div className="grid grid-cols-1 @2xl:grid-cols-2 @5xl:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {projects.map((project: Project) => (
               <div
                 key={project.slug?.current}
                 className="@container/card group bg-card border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
@@ -78,20 +96,22 @@ export async function ProjectsSection() {
                   {/* Tech Stack */}
                   {project.technologies && project.technologies.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 @md/card:gap-2">
-                      {project.technologies.slice(0, 4).map((tech, idx) => {
-                        const techData =
-                          tech && typeof tech === "object" && "name" in tech
-                            ? tech
-                            : null;
-                        return techData?.name ? (
-                          <span
-                            key={`${project.slug?.current}-tech-${idx}`}
-                            className="text-xs px-2 py-0.5 @md/card:py-1 rounded-md bg-muted"
-                          >
-                            {techData.name}
-                          </span>
-                        ) : null;
-                      })}
+                      {project.technologies
+                        .slice(0, 4)
+                        .map((tech: Technology, idx: number) => {
+                          const techData =
+                            tech && typeof tech === "object" && "name" in tech
+                              ? tech
+                              : null;
+                          return techData?.name ? (
+                            <span
+                              key={`${project.slug?.current}-tech-${idx}`}
+                              className="text-xs px-2 py-0.5 @md/card:py-1 rounded-md bg-muted"
+                            >
+                              {techData.name}
+                            </span>
+                          ) : null;
+                        })}
                       {project.technologies.length > 4 && (
                         <span className="text-xs px-2 py-0.5 @md/card:py-1 rounded-md bg-muted">
                           +{project.technologies.length - 4}

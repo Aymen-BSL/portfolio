@@ -20,8 +20,8 @@ export const ClientCard = ({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center
-       dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] rounded-3xl bg-muted/30"
+      className="border border-black/20 group/canvas-card flex items-center justify-center
+       dark:border-white/20 max-w-sm w-full mx-auto p-4 relative lg:h-140 rounded-3xl bg-muted/30"
       style={{
         // Uses your brand gradient
         backgroundColor: "linear-gradient(90deg, #4b6cb7 0%, #13162D 100%)",
@@ -57,9 +57,7 @@ export const ClientCard = ({
         </div>
         <h2
           className={`dark:text-white text-center text-3xl ${
-            hovered
-              ? "opacity-100 translate-y-[-0.5rem]"
-              : "opacity-0 translate-y-0"
+            hovered ? "opacity-100 -translate-y-2" : "opacity-0 translate-y-0"
           } relative z-10 text-black mt-4 font-bold 
           group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 
           transition duration-200`}
@@ -68,9 +66,7 @@ export const ClientCard = ({
         </h2>
         <p
           className={`text-sm ${
-            hovered
-              ? "opacity-100 translate-y-[-0.5rem]"
-              : "opacity-0 translate-y-0"
+            hovered ? "opacity-100 -translate-y-2" : "opacity-0 translate-y-0"
           } relative z-10 mt-4 group-hover/canvas-card:text-white text-center text-balance 
           group-hover/canvas-card:-translate-y-2 transition duration-200 text-black/75 bg-black/30 py-6 px-4 rounded-xl`}
         >
@@ -84,7 +80,7 @@ export const ClientCard = ({
 export const AceternityIcon = ({ order }: { order: string }) => {
   return (
     <div>
-      <button className="relative inline-flex overflow-hidden rounded-lg p-[1px] ">
+      <button className="relative inline-flex overflow-hidden rounded-lg p-px ">
         <span
           className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite]
           bg-[conic-gradient(from_90deg_at_50%_50%,#4b6cb7_0%,#13162D_50%,#4b6cb7_100%)]"
@@ -100,6 +96,7 @@ export const AceternityIcon = ({ order }: { order: string }) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Icon = ({ className, ...rest }: any) => {
   return (
     <svg
