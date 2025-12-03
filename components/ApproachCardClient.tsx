@@ -21,7 +21,7 @@ export const ClientCard = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="border border-black/20 group/canvas-card flex items-center justify-center
-       dark:border-white/20 max-w-sm w-full mx-auto p-4 relative lg:h-140 rounded-3xl bg-muted/30"
+       dark:border-white/20 max-w-sm w-full mx-auto p-4 relative lg:h-140 rounded-3xl bg-muted/30 text-white"
       style={{
         // Uses your brand gradient
         backgroundColor: "linear-gradient(90deg, #4b6cb7 0%, #13162D 100%)",
