@@ -44,22 +44,41 @@ const ApproachSection = async () => {
       </div>
 
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
-        {approaches.map((item) => (
-          <ClientCard
-            key={item._id}
-            title={item.title!}
-            icon={<AceternityIcon order={item.phase!} />}
-            des={item.description!}
-          >
-            <CanvasRevealEffect
-              animationSpeed={item.animationSpeed || 3}
-              containerClassName={item.containerClassName!}
-              // Parse the JSON string from Sanity back into the required number[][] format
-              colors={item.colors ? JSON.parse(item.colors) : [[125, 211, 252]]}
-              dotSize={2}
-            />
-          </ClientCard>
-        ))}
+        {approaches.map((item) => {
+          // --- FIX STARTS HERE ---
+          // 1. Set a safe default
+          let parsedColors = [[125, 211, 252]];
+
+          // 2. Try to parse safely
+          if (item.colors) {
+            try {
+              parsedColors = JSON.parse(item.colors);
+            } catch (error) {
+              console.error(
+                `${error}. Failed to parse colors for item ${item._id}:`,
+                item.colors
+              );
+              // It will simply fallback to the default defined above
+            }
+          }
+          // --- FIX ENDS HERE ---
+
+          return (
+            <ClientCard
+              key={item._id}
+              title={item.title || ""}
+              icon={<AceternityIcon order={item.phase || ""} />}
+              des={item.description || ""}
+            >
+              <CanvasRevealEffect
+                animationSpeed={item.animationSpeed || 3}
+                containerClassName={item.containerClassName || ""}
+                colors={parsedColors}
+                dotSize={2}
+              />
+            </ClientCard>
+          );
+        })}
       </div>
     </section>
   );
