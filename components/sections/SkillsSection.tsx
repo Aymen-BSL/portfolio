@@ -46,8 +46,8 @@ const SkillsSection = async () => {
         className="relative w-0 min-w-full overflow-hidden py-10"
       >
         {/* Gradients */}
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-white/80 dark:from-black/80 to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-white/80 dark:from-black/80 to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-white/80 dark:from-background/80 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-white/80 dark:from-background/80 to-transparent" />
 
         {/* The Track */}
         <div className="flex w-fit animate-infinite-scroll hover:paused">
