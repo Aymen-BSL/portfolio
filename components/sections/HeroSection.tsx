@@ -69,14 +69,14 @@ export async function HeroSection() {
               {profile.socialLinks && (
                 <div className="flex flex-wrap gap-3 @md/hero:gap-4 pt-4">
                   {
-                    <Link
+                    <a
                       href="/resume.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg border hover:bg-accent transition-colors text-sm @md/hero:text-base"
                     >
                       View my Resume
-                    </Link>
+                    </a>
                   }
                   {/* {profile.socialLinks.github && (
                     <Link
