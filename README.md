@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+# ⚡ Aymen-BSL Portfolio
+> A high-performance, interactive portfolio built with **Next.js 16 (React 19)**, **Sanity CMS**, and cutting-edge animation libraries.
+![Next.js](https://img.shields.io/badge/Next.js_16-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Sanity](https://img.shields.io/badge/Sanity-F36458?style=for-the-badge&logo=sanity&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CMS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+## 🌟 Overview
+This portfolio leverages the latest web technologies to deliver a seamless, dynamic user experience. It combines a robust headless CMS architecture with immersive 3D and motion effects.
+### Key Features
+*   **Headless Content Management**: Fully dynamic content powered by **Sanity v4**.
+*   **Live Visual Editing**: Implemented **Sanity Live Content** API for real-time, on-page editing and previews.
+*   **Next-Gen Framework**: Built on **Next.js 16** App Router and **React 19**.
+*   **Immersive Animations**: Complex motion graphics using **GSAP** and **Motion** (fka Framer Motion).
+*   **3D Elements**: Integrated **Three.js** via `@react-three/fiber` for interactive visuals.
+*   **Modern Styling**: **Tailwind CSS v4** + **Radix UI** primitives for accessible, high-performance design.
+## 🛠️ Tech Stack
+| Category | Technologies |
+|----------|--------------|
+| **Core** | Next.js 16, React 19, TypeScript |
+| **CMS** | Sanity.io (v4), Next-Sanity (Live Content) |
+| **Styling** | Tailwind CSS v4, Styled Components, CLSX |
+| **Animation** | GSAP, Motion, Three.js, React Three Fiber |
+| **Icons** | Lucide React, React Icons, Tabler Icons |
+| **Utilities** | dotted-map, class-variance-authority |
+## 🚀 Getting Started
+### Prerequisites
+*   Node.js 18+
+*   npm / yarn / pnpm
+### 1. Clone the repository
+```bash
+git clone https://github.com/Aymen-BSL/portfolio.git
+cd portfolio
+```
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Environment Setup
+Create a .env.local file in the root directory and add your Sanity credentials (required for Live Content fetching):
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_TOKEN=your_read_write_token
+```
+### 4. Run Development Server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+## 📝 Sanity Live Content & Studio
+This project utilizes **Sanity Live Content** (Visual Editing) to allow real-time updates and interactive previews.
+1.  **Access Studio**: Go to [http://localhost:3000/studio](http://localhost:3000/studio).
+2.  **Visual Editing**: Navigate to any page on the frontend while logged into the Studio to see clickable edit overlays (Presentation Mode).
+3.  **Real-time Updates**: Changes made in the Studio are instantly reflected on the frontend via the Live Content API without rebuilding.
+## 📜 Scripts
+-   `npm run dev`: Start Next.js dev server.
+-   `npm run build`: Build for production.
+-   `npm run typegen`: Generate TypeScript types from Sanity schemas.
+## License
+MIT
