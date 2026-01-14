@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
 
+  // Allow webpack config to work alongside Turbopack
+  turbopack: {},
+
   // Fix for Sanity Studio on Vercel - jsdom/dompurify issues
   webpack: (config, { isServer }) => {
     if (isServer) {
