@@ -5,7 +5,8 @@ export const projects = [
     des: "A luxurious wooden cabin hotel offering an immersive booking experience with stunning cabin options, designed to establish trust and attract guests seeking a serene escape.",
     img: "/p1-2.webp",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/supabase.svg"],
-    link: "https://the-wild-oasis-4-customers.vercel.app",
+    // link: "https://the-wild-oasis-4-customers.vercel.app",
+    link: "https://the-wild-oasis-website.vercel.app",
   },
   {
     id: 2,

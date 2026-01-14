@@ -32,7 +32,7 @@ const RecentProjects = async () => {
         <p className="text-xl text-muted-foreground">Some of my best work</p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-x-28 gap-10 md:gap-y-8 max-w-6xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-x-28 gap-16 md:gap-y-8 max-w-6xl mx-auto">
         {projects.map((item) => (
           <div
             className="h-114 sm:h-128 md:h-129 lg:h-141 xl:h-164 lg:min-h-130 flex items-center justify-center lg:w-[500px] w-[80vw]"
