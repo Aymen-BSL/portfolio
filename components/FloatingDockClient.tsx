@@ -237,6 +237,23 @@ function DockIcon({
     onItemClick?.();
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Handle smooth scrolling for hash links (internal section links)
+    if (item.href && item.href.startsWith("#") && !item.isExternal) {
+      e.preventDefault();
+      const targetId = item.href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+    onItemClick?.();
+  };
+
   const content = (
     <>
       <div className={isVertical ? verticalIconClasses : horizontalIconClasses}>
@@ -267,8 +284,8 @@ function DockIcon({
       target={item.isExternal ? "_blank" : undefined}
       rel={item.isExternal ? "noopener noreferrer" : undefined}
       className={wrapperClasses}
-      scroll={!item.isExternal}
-      onClick={onItemClick}
+      scroll={false}
+      onClick={handleLinkClick}
     >
       {content}
     </Link>

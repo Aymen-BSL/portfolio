@@ -25,14 +25,14 @@ const RecentProjects = async () => {
 
   return (
     <section className="py-20 px-6" id="projects" aria-label="Recent Projects">
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 max-md:mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
           Featured Projects
         </h2>
         <p className="text-xl text-muted-foreground">Some of my best work</p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-x-28 gap-16 md:gap-y-8 max-w-6xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-x-28 gap-20 md:gap-y-8 max-w-6xl mx-auto">
         {projects.map((item) => (
           <div
             className="h-114 sm:h-128 md:h-129 lg:h-141 xl:h-164 lg:min-h-130 flex items-center justify-center lg:w-[500px] w-[80vw]"
