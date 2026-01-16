@@ -35,7 +35,7 @@ export default function WorldMap({
   // Use fallback during SSR, then actual theme after mounting
   const mapColor = mounted
     ? theme === "dark"
-      ? "#000000BF"
+      ? "#000000"
       : "#00000060"
     : "#00000060"; // Default color during SSR
 
