@@ -17,7 +17,7 @@ interface MapProps {
 export default function WorldMap({
   dots = [],
   // lineColor = "#0ea5e9",
-  lineColor = "#FFFFFF",
+  lineColor = "#243b80",
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
@@ -30,10 +30,12 @@ export default function WorldMap({
     setMounted(true);
   }, []);
 
+  // color: theme === "dark" ? "#000000BF" : "#00000040",
+  // color: theme === "dark" ? "#243b80" : "#00000060",
   // Use fallback during SSR, then actual theme after mounting
   const mapColor = mounted
     ? theme === "dark"
-      ? "#243b80"
+      ? "#000000BF"
       : "#00000060"
     : "#00000060"; // Default color during SSR
 
