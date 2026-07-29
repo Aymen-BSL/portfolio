@@ -330,7 +330,7 @@ export async function POST(req: Request) {
 
     // Stream response with system prompt
     const result = streamText({
-      model: google("gemini-2.5-flash"),
+      model: google("gemini-3.6-flash"),
       system: systemPrompt,
       messages: await convertToModelMessages(messages),
     });

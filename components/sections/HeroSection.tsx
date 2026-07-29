@@ -78,7 +78,7 @@ export async function HeroSection() {
                       View my Resume
                     </Link>
                   }
-                  {/* {profile.socialLinks.github && (
+                  {profile.socialLinks.github && (
                     <Link
                       href={profile.socialLinks.github}
                       target="_blank"
@@ -87,7 +87,7 @@ export async function HeroSection() {
                     >
                       GitHub
                     </Link>
-                  )} */}
+                  )}
                   {profile.socialLinks.linkedin && (
                     <Link
                       href={profile.socialLinks.linkedin}
@@ -108,16 +108,6 @@ export async function HeroSection() {
                       Twitter
                     </Link>
                   )} */}
-                  {profile.socialLinks.website && (
-                    <Link
-                      href={profile.socialLinks.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg border hover:bg-accent transition-colors text-sm @md/hero:text-base"
-                    >
-                      My Old Portfolio
-                    </Link>
-                  )}
                 </div>
               )}
 

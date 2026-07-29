@@ -109,7 +109,7 @@ export async function ContactSection() {
                         View my Resume
                       </Link>
                     }
-                    {/* {profile.socialLinks.github && (
+                    {profile.socialLinks.github && (
                       <Link
                         href={profile.socialLinks.github}
                         target="_blank"
@@ -118,7 +118,7 @@ export async function ContactSection() {
                       >
                         GitHub
                       </Link>
-                    )} */}
+                    )}
                     {profile.socialLinks.linkedin && (
                       <Link
                         href={profile.socialLinks.linkedin}
@@ -139,16 +139,6 @@ export async function ContactSection() {
                         Twitter
                       </Link>
                     )} */}
-                    {profile.socialLinks.website && (
-                      <Link
-                        href={profile.socialLinks.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-3 py-1.5 @md/info:px-4 @md/info:py-2 rounded-lg border hover:bg-accent transition-colors text-xs @md/info:text-sm"
-                      >
-                        My Old Portfolio
-                      </Link>
-                    )}
                     {profile.socialLinks.medium && (
                       <Link
                         href={profile.socialLinks.medium}
