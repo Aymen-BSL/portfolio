@@ -8,13 +8,19 @@ export const ClientCard = ({
   icon,
   children,
   des,
+  accentRgb,
 }: {
   title: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
   des: string;
+  accentRgb: [number, number, number];
 }) => {
   const [hovered, setHovered] = React.useState(false);
+  const [red, green, blue] = accentRgb;
+  const panelRed = Math.round(red * 0.28);
+  const panelGreen = Math.round(green * 0.28);
+  const panelBlue = Math.round(blue * 0.28);
 
   return (
     <div
@@ -23,8 +29,7 @@ export const ClientCard = ({
       className="border border-black/20 group/canvas-card flex items-center justify-center
        dark:border-white/20 max-w-sm w-full mx-auto p-4 relative lg:h-140 rounded-3xl bg-muted/30 text-white"
       style={{
-        // Uses your brand gradient
-        backgroundColor: "linear-gradient(90deg, #4b6cb7 0%, #13162D 100%)",
+        backgroundImage: `linear-gradient(145deg, rgba(${red}, ${green}, ${blue}, 0.16), transparent 60%)`,
       }}
     >
       <Icon className="absolute h-10 w-10 -top-3 -left-3 dark:text-white text-black opacity-30" />
@@ -67,8 +72,14 @@ export const ClientCard = ({
         <p
           className={`text-sm ${
             hovered ? "opacity-100 -translate-y-2" : "opacity-0 translate-y-0"
-          } relative z-10 mt-4 group-hover/canvas-card:text-white text-center text-balance 
-          group-hover/canvas-card:-translate-y-2 transition duration-200 text-black/75 bg-black/30 py-6 px-4 rounded-xl`}
+          } relative z-10 mt-4 text-center text-balance text-white/90
+          group-hover/canvas-card:-translate-y-2 transition duration-200
+          border py-6 px-4 rounded-xl backdrop-blur-md`}
+          style={{
+            backgroundColor: `rgba(${panelRed}, ${panelGreen}, ${panelBlue}, 0.9)`,
+            borderColor: `rgba(${red}, ${green}, ${blue}, 0.5)`,
+            boxShadow: `0 18px 45px rgba(${red}, ${green}, ${blue}, 0.2)`,
+          }}
         >
           {des}
         </p>

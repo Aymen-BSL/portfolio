@@ -3,6 +3,11 @@ import { defineQuery } from "next-sanity";
 import { AceternityIcon, ClientCard } from "../ApproachCardClient";
 import { CanvasRevealEffect } from "../ui/canvas-reveal-effect";
 
+const clampColorChannel = (value: number | undefined, fallback: number) => {
+  if (typeof value !== "number" || !Number.isFinite(value)) return fallback;
+  return Math.min(255, Math.max(0, value));
+};
+
 /* interface ApproachItem {
   _id: string;
   phase: string;
@@ -47,7 +52,7 @@ const ApproachSection = async () => {
         {approaches.map((item) => {
           // --- FIX STARTS HERE ---
           // 1. Set a safe default
-          let parsedColors = [[125, 211, 252]];
+          let parsedColors: number[][] = [[125, 211, 252]];
 
           // 2. Try to parse safely
           if (item.colors) {
@@ -61,6 +66,13 @@ const ApproachSection = async () => {
               // It will simply fallback to the default defined above
             }
           }
+
+          const firstColor = parsedColors[0] || [];
+          const accentRgb: [number, number, number] = [
+            clampColorChannel(firstColor[0], 125),
+            clampColorChannel(firstColor[1], 211),
+            clampColorChannel(firstColor[2], 252),
+          ];
           // --- FIX ENDS HERE ---
 
           return (
@@ -69,6 +81,7 @@ const ApproachSection = async () => {
               title={item.title || ""}
               icon={<AceternityIcon order={item.phase || ""} />}
               des={item.description || ""}
+              accentRgb={accentRgb}
             >
               <CanvasRevealEffect
                 animationSpeed={item.animationSpeed || 3}
