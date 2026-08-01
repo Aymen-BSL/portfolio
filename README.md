@@ -5,14 +5,14 @@
 ![Sanity](https://img.shields.io/badge/Sanity-F36458?style=for-the-badge&logo=sanity&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CMS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ## 🌟 Overview
-This portfolio leverages the latest web technologies to deliver a seamless, dynamic user experience. It combines a robust headless CMS architecture with immersive 3D and motion effects.
+This portfolio combines a headless content architecture, live content updates, an AI assistant, and interactive motion design. Portfolio data is managed through Sanity and used by a Gemini-powered assistant to answer questions about my experience, projects, and technical skills.
 ### Key Features
-*   **Headless Content Management**: Fully dynamic content powered by **Sanity v4**.
-*   **Live Visual Editing**: Implemented **Sanity Live Content** API for real-time, on-page editing and previews.
-*   **Next-Gen Framework**: Built on **Next.js 16** App Router and **React 19**.
-*   **Immersive Animations**: Complex motion graphics using **GSAP** and **Motion** (fka Framer Motion).
-*   **3D Elements**: Integrated **Three.js** via `@react-three/fiber` for interactive visuals.
-*   **Modern Styling**: **Tailwind CSS v4** + **Radix UI** primitives for accessible, high-performance design.
+*   **AI Portfolio Assistant:** Integrated Gemini through the Google AI SDK to answer questions using structured portfolio data retrieved from Sanity.
+*   **Headless Content Management:** Projects, experience, skills, and other portfolio content are managed through structured Sanity schemas instead of being hard-coded into the frontend.
+*   **Live Content Updates:** Integrated Sanity Live Content so published Studio changes are reflected on the frontend without rebuilding or redeploying the application.
+*   **Visual Editing:** Added Sanity Presentation and Visual Editing support for previewing content and editing it directly from the portfolio interface.
+*   **Interactive Animations:** Built scroll-based and interface animations with GSAP and Motion.
+*   **Responsive Interface:** Developed a responsive, accessible interface using Tailwind CSS and reusable UI components.
 ## 🛠️ Tech Stack
 | Category | Technologies |
 |----------|--------------|
@@ -22,13 +22,23 @@ This portfolio leverages the latest web technologies to deliver a seamless, dyna
 | **Animation** | GSAP, Motion, Three.js, React Three Fiber |
 | **Icons** | Lucide React, React Icons, Tabler Icons |
 | **Utilities** | dotted-map, class-variance-authority |
+## 🛠️ Tech Stack
+| Category | Technologies |
+|----------|--------------|
+| **Core** | Next.js, React, TypeScript |
+| **Content** | Sanity, next-sanity, Sanity Live Content, Visual Editing |
+| **AI** | Gemini, Google AI SDK |
+| **Styling** | Tailwind CSS, styled-components, clsx |
+| **Animation** | GSAP, Motion |
+| **UI & Icons** | Radix UI, Lucide React, React Icons, Tabler Icons |
+| **Utilities** | class-variance-authority, dotted-map |
 ## 🚀 Getting Started
 ### Prerequisites
 *   Node.js 18+
 *   npm / yarn / pnpm
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Aymen-BSL/portfolio.git
+git clone https://github.com/Aymen-Ben-Salem/portfolio.git
 cd portfolio
 ```
 ### 2. Install Dependencies
@@ -41,6 +51,9 @@ Create a .env.local file in the root directory and add your Sanity credentials (
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_read_write_token
+SANITY_VIEWER_TOKEN=your_viewer_token
+
+GEMINI_API_KEY=your_api_key
 ```
 ### 4. Run Development Server
 ```bash
@@ -49,9 +62,15 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 ## 📝 Sanity Live Content & Studio
 This project utilizes **Sanity Live Content** (Visual Editing) to allow real-time updates and interactive previews.
-1.  **Access Studio**: Go to [http://localhost:3000/studio](http://localhost:3000/studio).
+1.  **Access Studio**
 2.  **Visual Editing**: Navigate to any page on the frontend while logged into the Studio to see clickable edit overlays (Presentation Mode).
 3.  **Real-time Updates**: Changes made in the Studio are instantly reflected on the frontend via the Live Content API without rebuilding.
+## 🤖 AI Portfolio Assistant
+The portfolio includes a Gemini-powered assistant that answers questions about my professional background.
+
+When a visitor submits a question, the server retrieves the relevant structured portfolio content from Sanity and includes it as grounding context in the Gemini request. This allows the assistant to generate responses based on my actual projects, experience, skills, and education rather than relying on generic model knowledge.
+
+The integration is implemented through the Google AI SDK, with requests handled server-side so API credentials are not exposed to the browser.
 ## 📜 Scripts
 -   `npm run dev`: Start Next.js dev server.
 -   `npm run build`: Build for production.
